@@ -3,7 +3,7 @@ import LeftPanel from "../components/LeftPanel";
 import RightPanel from "../components/RightPanel";
 import DialogBox from "../components/DialogBox";
 import { NotesContext } from "../context/NotesContext";
-import "./Main.css";
+import "./main.css";
 
 const Main = () => {
   const { groups, setGroups, groupidx, setGroupidx } = useContext(NotesContext);
@@ -67,5 +67,6 @@ const Main = () => {
     </>
   );
 };
+
 
 export default Main;
