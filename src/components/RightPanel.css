@@ -1,0 +1,535 @@
+.rp-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #DAE5F5;
+  height: 100vh;
+  position: relative;
+}
+
+.rp-container.rp-empty {
+  background: #DAE5F5 !important;
+}
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.empty-image {
+  width: 400px;
+  height: auto;
+  margin-bottom: 30px;
+  animation: floatImage 3s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.empty-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 20px 0;
+}
+
+.empty-description {
+  font-size: 16px;
+  color: #292929;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0;
+}
+
+.empty-footer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #292929;
+}
+
+.lock-icon {
+  font-size: 16px;
+}
+
+.rp-header {
+  background: #001F8B;
+  color: white;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.rp-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.delete-group-btn {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.delete-group-btn:hover {
+  background: #ee3344;
+  transform: scale(1.05);
+}
+
+.delete-group-btn:active {
+  transform: scale(0.95);
+}
+
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #DAE5F5;
+}
+
+.notes-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.notes-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notes-list::-webkit-scrollbar-thumb {
+  background: #b0b0b0;
+  border-radius: 4px;
+}
+
+.no-notes {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+.note-item {
+  background: white;
+  padding: 18px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.2s;
+  animation: slideInNote 0.3s ease;
+}
+
+@keyframes slideInNote {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.note-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.note-item.selected {
+  border: 2px solid #001F8B;
+  background: #f8f9ff;
+}
+
+.note-text {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #000000;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.note-timestamp {
+  margin: 10px 0 0 0;
+  font-size: 12px;
+  color: #666666;
+  text-align: right;
+  font-weight: 500;
+}
+
+.note-actions {
+  margin-top: 12px;
+}
+
+.note-actions button {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.note-actions button:hover {
+  background: #ee3344;
+  transform: scale(1.05);
+}
+
+.add-note-area {
+  background: #001F8B;
+  padding: 20px 30px 25px 30px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  position: relative;
+}
+
+.add-note-area textarea {
+  flex: 1;
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  padding: 15px 60px 15px 18px;
+  font-size: 15px;
+  resize: none;
+  min-height: 100px;
+  font-family: inherit;
+  line-height: 1.5;
+  background: white;
+  color: #000000;
+}
+
+.add-note-area textarea::placeholder {
+  color: #AAAAAA;
+  font-size: 14px;
+}
+
+.add-note-area textarea:focus {
+  outline: none;
+  border-color: #4A90E2;
+}
+
+.send-btn {
+  position: absolute;
+  bottom: 35px;
+  right: 45px;
+  background: transparent;
+  color: #999999;
+  border: none;
+  cursor: pointer;
+  font-size: 32px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.send-btn:not(:disabled) {
+  color: #001F8B;
+  cursor: pointer;
+}
+
+.send-btn:not(:disabled):hover {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+.send-btn:not(:disabled):active {
+  transform: scale(0.9);
+}
+
+.send-btn:disabled {
+  color: #CCCCCC;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1024px) {
+  .empty-image {
+    width: 320px;
+  }
+
+  .empty-title {
+    font-size: 32px;
+  }
+
+  .empty-description {
+    font-size: 15px;
+  }
+
+  .rp-header {
+    padding: 16px 24px;
+  }
+
+  .rp-header h2 {
+    font-size: 18px;
+  }
+
+  .notes-list {
+    padding: 20px 24px;
+    gap: 16px;
+  }
+
+  .add-note-area {
+    padding: 18px 24px 20px 24px;
+  }
+
+  .add-note-area textarea {
+    min-height: 90px;
+    padding: 14px 55px 14px 16px;
+  }
+
+  .send-btn {
+    bottom: 32px;
+    right: 38px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .empty-state {
+    padding: 30px 20px;
+  }
+
+  .empty-image {
+    width: 280px;
+    margin-bottom: 24px;
+  }
+
+  .empty-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .empty-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .empty-footer {
+    font-size: 13px;
+    bottom: 16px;
+  }
+
+  .rp-header {
+    padding: 14px 20px;
+  }
+
+  .rp-header h2 {
+    font-size: 17px;
+  }
+
+  .delete-group-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+
+  .notes-list {
+    padding: 18px 20px;
+    gap: 14px;
+  }
+
+  .notes-list::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .note-item {
+    padding: 16px 18px;
+  }
+
+  .note-text {
+    font-size: 13px;
+  }
+
+  .note-timestamp {
+    font-size: 11px;
+  }
+
+  .add-note-area {
+    padding: 16px 20px 18px 20px;
+    gap: 12px;
+  }
+
+  .add-note-area textarea {
+    min-height: 80px;
+    padding: 12px 50px 12px 14px;
+    font-size: 14px;
+  }
+
+  .send-btn {
+    bottom: 28px;
+    right: 32px;
+    font-size: 28px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .empty-state {
+    padding: 20px 16px;
+  }
+
+  .empty-image {
+    width: 220px;
+    margin-bottom: 20px;
+  }
+
+  .empty-title {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .empty-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .empty-footer {
+    font-size: 12px;
+    bottom: 12px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .lock-icon {
+    font-size: 14px;
+  }
+
+  .rp-header {
+    padding: 12px 16px;
+  }
+
+  .rp-header h2 {
+    font-size: 16px;
+    flex: 1;
+  }
+
+  .delete-group-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .notes-list {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .notes-list::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .note-item {
+    padding: 14px 16px;
+    border-radius: 8px;
+  }
+
+  .note-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .note-timestamp {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+
+  .note-actions {
+    margin-top: 10px;
+  }
+
+  .note-actions button {
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+
+  .add-note-area {
+    padding: 14px 16px 16px 16px;
+    gap: 10px;
+  }
+
+  .add-note-area textarea {
+    min-height: 70px;
+    padding: 12px 48px 12px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .add-note-area textarea::placeholder {
+    font-size: 13px;
+  }
+
+  .send-btn {
+    bottom: 26px;
+    right: 26px;
+    font-size: 26px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .empty-image {
+    width: 180px;
+  }
+
+  .empty-title {
+    font-size: 20px;
+  }
+
+  .empty-description {
+    font-size: 12px;
+  }
+
+  .rp-header h2 {
+    font-size: 15px;
+  }
+
+  .note-text {
+    font-size: 12px;
+  }
+
+  .add-note-area textarea {
+    min-height: 60px;
+    font-size: 13px;
+  }
+
+  .send-btn {
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    bottom: 24px;
+    right: 24px;
+  }
+}
